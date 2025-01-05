@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/themes/dart_mode.dart';
-import 'package:note_app/pages/home_page.dart';
+import 'package:note_app/views/home_view.dart';
 
 void main() {
   runApp(const NoteApp());
@@ -9,13 +8,19 @@ void main() {
 class NoteApp extends StatelessWidget {
   const NoteApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: darkMode,
-      home: const HomePage(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.dark(
+          surface: Colors.grey.shade900,
+          primary: Colors.grey.shade600,
+          secondary: Colors.grey,
+          inversePrimary: Colors.grey.shade300,
+        ),
+      ),
+      home: NotesView(),
     );
   }
 }
